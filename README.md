@@ -9,10 +9,10 @@
 
 ## Instalación
 ```yml
-Clonar Repostorio: git clone project
+Clonar Repostorio: git clone <project>
 ```
 ```yml
-Instalar Dependencias: composer require
+Instalar Dependencias: composer require <dependency>
 ```
 
 ## Configuración
