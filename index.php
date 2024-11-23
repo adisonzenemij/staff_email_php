@@ -4,12 +4,17 @@
     # Incluir archivos de configuraciones
     require DIR . '/config/autoload.php';
     require DIR . '/vendor/autoload.php';
-    require DIR . '/libraries/envmnt.php';
+    //require DIR . '/libraries/envmnt.php';
     
     # Cargar el enrutador
+    use App\Library\Envmnt;
     use App\Core\Load;
     use App\Core\Router;
     
+    # Crear instancia del entorno
+    $envmnt = new Envmnt();
+    # Cargar variables de entorno
+    $envmnt->execute();
     # Crear instancia del enrutador
     $router = new Router();
     # Crear instancia para cargar las rutas
