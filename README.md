@@ -20,7 +20,7 @@ Instalar Dependencias: composer require
 Environment: composer require vlucas/phpdotenv
 ```
 ```yml
-Mailer: composer require vlucas/phpdotenv
+Mailer: composer require phpmailer/phpmailer
 ```
 
 ## Páginas Oficiales
