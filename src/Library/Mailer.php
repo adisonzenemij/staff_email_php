@@ -5,40 +5,45 @@
     use PHPMailer\PHPMailer\Exception;
 
     class Mailer {
-        public function send($to, $subject, $message) {
-            // Cargar las variables de entorno
-            $dotenv = Dotenv::createImmutable(__DIR__);
-            $dotenv->load();
-    
-            // Crear una instancia de PHPMailer
+        public function sending() {
+            # Crear una instancia de PHPMailer
             $mail = new PHPMailer(true);
             try {
-                // Configuración del servidor SMTP
+                # Configuración del servidor SMTP
                 $mail->isSMTP();
-                $mail->Host = $_ENV['SMTP_HOST'];
-                $mail->Port = $_ENV['SMTP_PORT'];
-                $mail->SMTPAuth = true;
-                $mail->Username = $_ENV['SMTP_USERNAME'];
-                $mail->Password = $_ENV['SMTP_PASSWORD'];
-                $mail->SMTPSecure = $_ENV['SMTP_ENCRYPTION'];
+                $mail->SMTPDebug  = $_ENV['SMTP_DEBUG'];
+                $mail->Host       = $_ENV['SMTP_HOST'];
+                $mail->Port       = $_ENV['SMTP_PORT'];
+                $mail->SMTPAuth   = $_ENV['SMTP_AUTH'];
+                $mail->Username   = $_ENV['SMTP_USER'];
+                $mail->Password   = $_ENV['SMTP_PASS'];
+                $mail->SMTPSecure = $_ENV['SMTP_ENCRY'];
     
-                // Remitente
-                $mail->setFrom($_ENV['SMTP_FROM_ADDRESS'], $_ENV['SMTP_FROM_NAME']);
-                $mail->addReplyTo($_ENV['SMTP_REPLY_TO_ADDRESS']);
-                
-                // Destinatario
-                $mail->addAddress($to);
+                # Configuración del remitente
+                $mail->setFrom($_ENV['FROM_ADDRESS'], $_ENV['FROM_NAME']);
+                # Configuración del destinatario
+                $mail->addAddress($_ENV['SEND_ADDRESS'], $_ENV['SEND_NAME']);
+                # Configuración de la copia de usuario
+                $mail->addReplyTo($_ENV['REPLY_ADDRESS'], $_ENV['REPLY_NAME']);
     
-                // Contenido del correo
+                # Contenido del correo
                 $mail->isHTML(true);
-                $mail->Subject = $subject;
-                $mail->Body    = $message;
+                # Asunto del correo
+                $mail->Subject = $_ENV['MAIL_SUBJECT'];
+                # Cuerpo del correo en HTML
+                $mail->Body    = $_ENV['MAIL_MESSAGE'];
+                # Cuerpo alternativo en texto plano
+                $mail->AltBody = $_ENV['MAIL_ALT_BODY'];
     
-                // Enviar el correo
+                # Enviar el correo
                 $mail->send();
-                echo 'El correo ha sido enviado exitosamente';
+                # Retornar mensaje
+                return 'Éxito: Correo enviado correctamente.';
             } catch (Exception $e) {
-                echo "El correo no pudo ser enviado. Error: {$mail->ErrorInfo}";
+                # Retornar mensaje
+                $large = "Importante: Correo no enviado.";
+                $error = "Error: {$mail->ErrorInfo}";
+                return $large . "<br/>" . $error;
             }
         }
     }

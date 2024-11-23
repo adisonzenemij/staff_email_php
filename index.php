@@ -1,14 +1,16 @@
 <?php
     # Directorio Proyecto
     define('DIR', __DIR__);
+    
     # Incluir archivos de configuraciones
     require DIR . '/config/autoload.php';
     require DIR . '/vendor/autoload.php';
-    //require DIR . '/libraries/envmnt.php';
     
-    # Cargar el enrutador
+    # Cargar variables
     use App\Library\Envmnt;
+    # Cargar el enrutador
     use App\Core\Load;
+    # Cargar el enrutador
     use App\Core\Router;
     
     # Crear instancia del entorno
