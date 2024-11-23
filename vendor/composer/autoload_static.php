@@ -82,6 +82,7 @@ class ComposerStaticInitda84bde39683b6ec2ac7649e622e805c
             'ParaTest\\' => 9,
             'PHPUnit\\Architecture\\' => 21,
             'PHPStan\\PhpDocParser\\' => 21,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'N' => 
         array (
@@ -102,7 +103,6 @@ class ComposerStaticInitda84bde39683b6ec2ac7649e622e805c
         'D' => 
         array (
             'Doctrine\\Deprecations\\' => 22,
-            'Developer\\StaffEmailPhp\\' => 24,
             'DeepCopy\\' => 9,
         ),
         'C' => 
@@ -111,6 +111,10 @@ class ComposerStaticInitda84bde39683b6ec2ac7649e622e805c
             'Composer\\Semver\\' => 16,
             'Composer\\Pcre\\' => 14,
             'Clue\\React\\NDJson\\' => 18,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -269,6 +273,10 @@ class ComposerStaticInitda84bde39683b6ec2ac7649e622e805c
         array (
             0 => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'NunoMaduro\\Collision\\' => 
         array (
             0 => __DIR__ . '/..' . '/nunomaduro/collision/src',
@@ -289,10 +297,6 @@ class ComposerStaticInitda84bde39683b6ec2ac7649e622e805c
         array (
             0 => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations',
         ),
-        'Developer\\StaffEmailPhp\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
@@ -312,6 +316,10 @@ class ComposerStaticInitda84bde39683b6ec2ac7649e622e805c
         'Clue\\React\\NDJson\\' => 
         array (
             0 => __DIR__ . '/..' . '/clue/ndjson-react/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

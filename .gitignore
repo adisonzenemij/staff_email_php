@@ -1,0 +1,11 @@
+## Sonar Scanner ##
+.scannerwork
+
+## Variables Entorno ##
+/envs/.env
+
+## Composer ##
+/vendor/
+
+## Registros ##
+/logs/
