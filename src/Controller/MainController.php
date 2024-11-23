@@ -15,10 +15,10 @@
             # Renderiar plantilla y configuracion
             Render::view($templates, $data);
             # Ejecutar correo electrónico
-            mailer();
+            $this->testing();
         }
 
-        public function mailer() {
+        public function testing() {
             # Enviar correo electronico
             $result = Mailer::sending();
             # Imprimir resultado

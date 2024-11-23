@@ -5,7 +5,7 @@
     use PHPMailer\PHPMailer\Exception;
 
     class Mailer {
-        public function sending() {
+        public static function sending() {
             # Crear una instancia de PHPMailer
             $mail = new PHPMailer(true);
             try {
