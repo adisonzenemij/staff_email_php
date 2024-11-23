@@ -23,7 +23,11 @@
                 $mail->setFrom($_ENV['FROM_ADDRESS'], $_ENV['FROM_NAME']);
                 # Configuración del destinatario
                 $mail->addAddress($_ENV['SEND_ADDRESS'], $_ENV['SEND_NAME']);
-                # Configuración de la copia de usuario
+                
+                # Verificar correos adicionales
+                self::copy($mail);
+
+                # Configuración de la respuesta del correo
                 $mail->addReplyTo($_ENV['REPLY_ADDRESS'], $_ENV['REPLY_NAME']);
     
                 # Contenido del correo
@@ -44,6 +48,29 @@
                 $large = "Importante: Correo no enviado.";
                 $error = "Error: {$mail->ErrorInfo}";
                 return $large . "<br/>" . $error;
+            }
+        }
+
+        public static function copy($mail) {
+            # Verificar si ambas variables COPY_ADDRESS y COPY_NAME están definidas
+            if (!empty($_ENV['COPY_ADDRESS']) && !empty($_ENV['COPY_NAME'])) {
+                # Obtener correos y nombres de las direcciones de copia
+                $testEmails = explode(',', $_ENV['COPY_ADDRESS']);
+                $testNames = explode(',', $_ENV['COPY_NAME']);
+                
+                # Verificar que ambos arreglos tengan la misma cantidad de elementos
+                if (count($testEmails) == count($testNames)) {
+                    # Recorrer las direcciones de copia y agregar nombre
+                    foreach ($testEmails as $index => $email) {
+                        # Agregar correo y nombre
+                        $mail->addAddress(trim($email), trim($testNames[$index]));
+                    }
+                } else {
+                    # Si los arreglos no coinciden, solo agregar los correos sin nombres
+                    foreach ($testEmails as $email) {
+                        $mail->addAddress(trim($email));
+                    }
+                }
             }
         }
     }
