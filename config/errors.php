@@ -9,3 +9,4 @@
     # Ruta completa del archivo de log
     $logFilePath = $logDir . $logFileName;
     ini_set('error_log', $logFilePath);
+?>

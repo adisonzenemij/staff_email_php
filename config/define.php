@@ -17,3 +17,4 @@
     define('ACSS', ASSTS . '/css');
     define('AIMG', ASSTS . '/img');
     define('AJS', ASSTS . '/js');
+?>
