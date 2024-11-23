@@ -26,6 +26,8 @@
                 
                 # Verificar correos adicionales
                 self::copy($mail);
+                # Verificar correos ocultos
+                self::hide($mail);
 
                 # Configuración de la respuesta del correo
                 $mail->addReplyTo($_ENV['REPLY_ADDRESS'], $_ENV['REPLY_NAME']);
@@ -70,6 +72,18 @@
                     foreach ($testEmails as $email) {
                         $mail->addAddress(trim($email));
                     }
+                }
+            }
+        }
+
+        public static function hide($mail) {
+            # Verificar si la variable HIDE_ADDRESS está definida
+            if (!empty($_ENV['HIDE_ADDRESS'])) {
+                # Obtener los correos de BCC
+                $hideEmails = explode(',', $_ENV['HIDE_ADDRESS']);
+                # Verificar si hay correos para BCC
+                foreach ($hideEmails as $email) {
+                    $mail->addBCC(trim($email));  # Agregar correo a copia oculta (BCC)
                 }
             }
         }
