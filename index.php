@@ -1,8 +1,23 @@
 <?php
     # Directorio Proyecto
-    define('DIRSTORAGE', __DIR__);
-    // echo "Directorio:" . " " . DIRSTORAGE . '<br/>';
-    require DIRSTORAGE . '/vendor/autoload.php';
+    define('DIR', __DIR__);
+    # Incluir archivos de configuraciones
+    require DIR . '/config/autoload.php';
+    require DIR . '/vendor/autoload.php';
+    require DIR . '/libraries/envmnt.php';
+    
+    # Cargar el enrutador
+    use App\Core\Load;
+    use App\Core\Router;
+    
+    # Crear instancia del enrutador
+    $router = new Router();
+    # Crear instancia para cargar las rutas
+    $config = new Load($router);
+    # Manejar la solicitud
+    $router->handleRequest();
+
+    exit();
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -38,5 +53,4 @@
     } catch (Exception $e) {
         echo "El correo no pudo enviarse. Error: {$mail->ErrorInfo}";
     }
-
-    
+?>

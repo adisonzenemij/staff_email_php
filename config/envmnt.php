@@ -9,3 +9,4 @@
         # Crear una copia del archivo de respaldo
         copy(ENV_BCKP, ENV_PRDT);
     }
+?>
