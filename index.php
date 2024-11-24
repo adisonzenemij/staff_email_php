@@ -15,7 +15,7 @@
     
     # Crear instancia del entorno
     $envmnt = new Envmnt();
-    # Cargar variables de entorno
+    # Obtener variables de entorno
     $envmnt->execute();
     
     # Crear instancia del enrutador
