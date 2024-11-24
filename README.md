@@ -25,6 +25,12 @@ Mailer: composer require phpmailer/phpmailer
 
 ## Variables Entorno
 ```yml
+APP_PROJECT: Nombre del proyecto
+APP_FRAMEWORK: Framework utilizado [none | other]
+APP_VERSION: Versión de la aplicación
+APP_DEBUG: Depuración activada [true | false]
+```
+```yml
 ### Configuración SMTP ###
 SMTP_DEBUG: Depuración según valores [0 | 1 | 2 | 3]
 SMTP_AUTH: Autenticación según valores [true | false]
