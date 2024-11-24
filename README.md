@@ -25,6 +25,7 @@ Mailer: composer require phpmailer/phpmailer
 
 ## Variables Entorno
 ```yml
+### Configuración Básica ###
 APP_PROJECT: Nombre del proyecto
 APP_FRAMEWORK: Framework utilizado [none | other]
 APP_VERSION: Versión de la aplicación
