@@ -23,49 +23,36 @@ Environment: composer require vlucas/phpdotenv
 Mailer: composer require phpmailer/phpmailer
 ```
 
-# Depuración: 0 | 1 | 2 |3
-SMTP_DEBUG=
-# Autenticación: true | false
-SMTP_AUTH=
-# Servidor: smtp.gmail.com | smtp.office365.com
-SMTP_HOST=
-# Puerto: 25 | 465 | 587
-SMTP_PORT=
-# Usuario: Correo electrónico
-SMTP_USER=
-# Contraseña; Seguridad de aplicaciones
-SMTP_PASS=
-# CifradO: TLS | SSL
-SMTP_ENCRY=
+## Variables Entorno
+```yml
+### Configuración SMTP ###
+SMTP_DEBUG: Depuración según valores [0 | 1 | 2 | 3]
+SMTP_AUTH: Autenticación según valores [true | false]
+SMTP_HOST: Servidor según valores [smtp.gmail.com | smtp.office365.com]
+SMTP_PORT: Puerto según valores [25 | 465 | 587]
+SMTP_USER: Usuario o correo electrónico
+SMTP_PASS: Contraseña o seguridad de aplicaciones
+SMTP_ENCRY: Cifrado según valores [TLS | SSL]
 
-# Email Remitente: Correo electrónico
-FROM_ADDRESS=
-# Nombre Remitente: Persona destinataria
-FROM_NAME=
-# Respuesta Correo: Correo electrónico
-REPLY_ADDRESS=
-# Respuesta Persona: Otros destinatarios
-REPLY_NAME=
+### Configuración Remitente ###
+FROM_ADDRESS: Email Remitente (correo electrónico)
+FROM_NAME: Nombre del Remitente (persona destinataria)
+REPLY_ADDRESS: Dirección de Respuesta (correo electrónico)
+REPLY_NAME: Nombre del Remitente de Respuesta (persona destinataria)
 
-# Email Destino: Correo electrónico
-SEND_ADDRESS=
-# Nombre Destino: Persona destinataria
-SEND_NAME=
-# Email Oculto: Correo electrónico
-HIDE_ADDRESS=
-# Nombre Oculto: Persona destinataria
-HIDE_NAME=
-# Copia Correo: Correo electrónico
-COPY_ADDRESS=
-# Copia Persona: Otros destinatarios
-COPY_NAME=
+### Configuración Destinatarios ###
+SEND_ADDRESS: Email Destino (correo electrónico)
+SEND_NAME: Nombre Destino (persona destinataria)
+HIDE_ADDRESS: Email Oculto (correo electrónico)
+HIDE_NAME: Nombre del Destinatario Oculto (persona destinataria)
+COPY_ADDRESS: Emails en Copia (separados por comas)
+COPY_NAME: Nombres de las Personas en Copia (separados por comas)
 
-# Asunto del correo electrónico
-MAIL_SUBJECT=
-# Cuerpo del correo electrónico
-MAIL_MESSAGE=
-# Mensaje extra para el correo electrónico
-MAIL_ALT_BODY=
+### Configuración Mensajes ###
+MAIL_SUBJECT: Asunto del correo electrónico
+MAIL_MESSAGE: Cuerpo principal del correo electrónico
+MAIL_ALT_BODY: Cuerpo alternativo o mensaje extra del correo electrónico
+```
 
 ## Páginas Oficiales
 <div align="center">
